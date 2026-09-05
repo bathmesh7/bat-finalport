@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Bathmesh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #132018;
+      --muted: #4a5c52;
+      --accent: #1f6b4a;
+      --bg: #e8f0eb;
+      --bg-deep: #d4e4da;
+      --line: rgba(19, 32, 24, 0.12);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, #c5e0d0 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 90% 10%, #f0e6c8 0%, transparent 50%),
+        linear-gradient(165deg, var(--bg) 0%, var(--bg-deep) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.5rem;
+      padding: 1.25rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(232, 240, 235, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: var(--muted);
+      position: relative;
+      padding: 0.35rem 0;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active { color: var(--ink); }
+
+    nav a:hover::after,
+    nav a.active::after { transform: scaleX(1); }
+
+    .content {
+      flex: 1;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 28rem;
+    }
+
+    .skills {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .skills li {
+      padding: 1rem 1.15rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+      border-bottom: 2px solid var(--accent);
+      background: transparent;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 520px) {
+      nav { gap: 0.15rem 1rem; padding: 1rem; }
+      nav a { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="content">
+    <h1>My Skills</h1>
+    <p class="intro">Tools and languages I use while building and learning.</p>
+    <ul class="skills">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Python</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Flask</li>
+      <li>Git &amp; GitHub</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>© 2026 Bathmesh</p>
+  </footer>
+</body>
+</html>

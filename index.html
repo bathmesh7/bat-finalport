@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bathmesh — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #132018;
+      --muted: #4a5c52;
+      --accent: #1f6b4a;
+      --accent-hover: #16553a;
+      --warm: #c27803;
+      --bg: #e8f0eb;
+      --bg-deep: #d4e4da;
+      --surface: rgba(255, 255, 255, 0.55);
+      --line: rgba(19, 32, 24, 0.12);
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, #c5e0d0 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 90% 10%, #f0e6c8 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, #b8d4c4 0%, transparent 45%),
+        linear-gradient(165deg, var(--bg) 0%, var(--bg-deep) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.5rem;
+      padding: 1.25rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(232, 240, 235, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: var(--muted);
+      position: relative;
+      padding: 0.35rem 0;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active { color: var(--ink); }
+
+    nav a:hover::after,
+    nav a.active::after { transform: scaleX(1); }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem 5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .portrait {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 50%;
+      margin-bottom: 1.75rem;
+      border: 3px solid var(--accent);
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 10vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 28rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .cta:active { transform: translateY(0); }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 520px) {
+      nav { gap: 0.15rem 1rem; padding: 1rem; }
+      nav a { font-size: 0.8rem; }
+      .hero { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="hero">
+    <img class="portrait" src="profile.jpg" alt="Bathmesh">
+    <h1 class="brand">Bathmesh</h1>
+    <p class="tagline">Student &amp; Developer</p>
+    <p>
+      Welcome to my personal portfolio.
+      I am learning programming and web development.
+    </p>
+    <a class="cta" href="projects.html">View My Projects →</a>
+  </main>
+
+  <footer>
+    <p>© 2026 Bathmesh. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
