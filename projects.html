@@ -87,6 +87,10 @@
       padding: 3.5rem 1.5rem 4rem;
     }
 
+    .content > * {
+      animation: rise-in 0.65s ease both;
+    }
+
     h1 {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 6vw, 3.4rem);
@@ -101,11 +105,28 @@
     }
 
     .project {
-      padding: 1.75rem 0;
-      border-top: 1px solid var(--line);
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.4);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .project:last-child { border-bottom: 1px solid var(--line); }
+    .project:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 10px 24px rgba(19, 32, 24, 0.08);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project:nth-child(2) { animation-delay: 0.1s; }
+    .project:nth-child(3) { animation-delay: 0.2s; }
+    .project:nth-child(4) { animation-delay: 0.3s; }
 
     .project h2 {
       font-family: var(--font-display);
@@ -127,6 +148,11 @@
       color: var(--accent);
     }
 
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -138,6 +164,11 @@
     @media (max-width: 520px) {
       nav { gap: 0.15rem 1rem; padding: 1rem; }
       nav a { font-size: 0.8rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
@@ -154,6 +185,7 @@
     <h1>My Projects</h1>
     <p class="intro">A few things I've built while learning.</p>
 
+    <div class="projects-grid">
     <article class="project">
       <h2>Portfolio Website</h2>
       <p>
@@ -178,6 +210,7 @@
       </p>
       <p class="tech">Python</p>
     </article>
+    </div>
   </main>
 
   <footer>

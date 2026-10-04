@@ -87,6 +87,15 @@
       padding: 3.5rem 1.5rem 4rem;
     }
 
+    .content > * {
+      animation: rise-in 0.65s ease both;
+    }
+
+    .content > :nth-child(2) { animation-delay: 0.1s; }
+    .content > :nth-child(3) { animation-delay: 0.18s; }
+    .content > :nth-child(4) { animation-delay: 0.26s; }
+    .content > :nth-child(5) { animation-delay: 0.34s; }
+
     .portrait {
       width: 180px;
       height: 180px;
@@ -122,6 +131,11 @@
 
     p { color: var(--muted); }
 
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -133,6 +147,10 @@
     @media (max-width: 520px) {
       nav { gap: 0.15rem 1rem; padding: 1rem; }
       nav a { font-size: 0.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
